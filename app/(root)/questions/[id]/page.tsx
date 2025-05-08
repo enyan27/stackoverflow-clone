@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
+import AllAnswers from "@/components/answers/AllAnswer";
 import TagCard from "@/components/cards/TagCard";
 import { Preview } from "@/components/editor/Preview";
 import AnswerForm from "@/components/forms/AnswerForm";
@@ -15,6 +16,7 @@ import { formatNumber, getTimeStamp } from "@/lib/utils";
 const QuestionDetails = async ({ params }: RouteParams) => {
     const { id } = await params;
 
+    // Inc views + Get question[id]
     const [_, { success, data: question }] = await Promise.all([
         await incrementViews({ questionId: id }),
         await getQuestion({ questionId: id }),
@@ -22,6 +24,7 @@ const QuestionDetails = async ({ params }: RouteParams) => {
 
     if (!success || !question) return redirect("/404");
 
+    // Get answers
     const {
         success: areAnswersLoaded,
         data: answersResult,
@@ -32,8 +35,6 @@ const QuestionDetails = async ({ params }: RouteParams) => {
         pageSize: 10,
         filter: "latest",
     });
-
-    console.log("Answer", answersResult);
 
     const { author, createdAt, answers, views, tags, content, title } = question;
 
@@ -101,6 +102,15 @@ const QuestionDetails = async ({ params }: RouteParams) => {
                     />
                 ))}
             </div>
+
+            <section className="my-5">
+                <AllAnswers
+                    data={answersResult?.answers}
+                    success={areAnswersLoaded}
+                    error={answersError}
+                    totalAnswers={answersResult?.totalAnswers || 0}
+                />
+            </section>
 
             <section className="my-5">
                 <AnswerForm questionId={question._id} />
