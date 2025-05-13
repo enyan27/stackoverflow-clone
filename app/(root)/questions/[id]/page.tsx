@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 
 import AllAnswers from "@/components/answers/AllAnswer";
 import TagCard from "@/components/cards/TagCard";
@@ -12,6 +12,7 @@ import Votes from "@/components/votes/Vote";
 import ROUTES from "@/constants/routes";
 import { getAnswers } from "@/lib/actions/answer.action";
 import { getQuestion, incrementViews } from "@/lib/actions/question.action";
+import { hasVoted } from "@/lib/actions/vote.action";
 import { formatNumber, getTimeStamp } from "@/lib/utils";
 
 const QuestionDetails = async ({ params }: RouteParams) => {
@@ -36,6 +37,11 @@ const QuestionDetails = async ({ params }: RouteParams) => {
         pageSize: 10,
         filter: "latest",
     });
+    // Check if hasVoted
+    const hasVotedPromise = hasVoted({
+        targetId: question._id,
+        targetType: "question",
+    });
 
     const { author, createdAt, answers, views, tags, content, title } = question;
 
@@ -58,13 +64,15 @@ const QuestionDetails = async ({ params }: RouteParams) => {
                     </div>
 
                     <div className="flex justify-end">
-                        {/* Todo */}
-                        <Votes
-                            upvotes={question.upvotes}
-                            hasupVoted={true}
-                            downvotes={question.downvotes}
-                            hasdownVoted={false}
-                        />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <Votes
+                                targetType="question"
+                                upvotes={question.upvotes}
+                                downvotes={question.downvotes}
+                                targetId={question._id}
+                                hasVotedPromise={hasVotedPromise}
+                            />
+                        </Suspense>
                     </div>
                 </div>
 
