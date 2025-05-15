@@ -7,6 +7,7 @@ import TagCard from "@/components/cards/TagCard";
 import { Preview } from "@/components/editor/Preview";
 import AnswerForm from "@/components/forms/AnswerForm";
 import Metric from "@/components/Metric";
+import SaveQuestion from "@/components/questions/SaveQuestion";
 import UserAvatar from "@/components/UserAvatar";
 import Votes from "@/components/votes/Vote";
 import ROUTES from "@/constants/routes";
@@ -64,6 +65,7 @@ const QuestionDetails = async ({ params }: RouteParams) => {
                     </div>
 
                     <div className="flex justify-end">
+                        {/* Vote Question */}
                         <Suspense fallback={<div>Loading...</div>}>
                             <Votes
                                 targetType="question"
@@ -72,6 +74,11 @@ const QuestionDetails = async ({ params }: RouteParams) => {
                                 targetId={question._id}
                                 hasVotedPromise={hasVotedPromise}
                             />
+                        </Suspense>
+
+                        {/* Save Question => Collections */}
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <SaveQuestion questionId={question._id} />
                         </Suspense>
                     </div>
                 </div>

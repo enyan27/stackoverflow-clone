@@ -51,6 +51,7 @@ const AnswerCard = ({
                 </div>
 
                 <div className="flex justify-end">
+                    {/* Vote Answer */}
                     <Suspense fallback={<div>Loading...</div>}>
                         <Votes
                             targetType="answer"
