@@ -17,8 +17,9 @@ import { getQuestion, incrementViews } from "@/lib/actions/question.action";
 import { hasVoted } from "@/lib/actions/vote.action";
 import { formatNumber, getTimeStamp } from "@/lib/utils";
 
-const QuestionDetails = async ({ params }: RouteParams) => {
+const QuestionDetails = async ({ params, searchParams }: RouteParams) => {
     const { id } = await params;
+    const { page, pageSize, filter } = await searchParams;
 
     // Inc views + Get question[id]
     const [_, { success, data: question }] = await Promise.all([
@@ -35,8 +36,8 @@ const QuestionDetails = async ({ params }: RouteParams) => {
         error: answersError,
     } = await getAnswers({
         questionId: id,
-        page: 1,
-        pageSize: 10,
+        page: Number(page) || 1,
+        pageSize: Number(pageSize) || 10,
         filter: "latest",
     });
     // Check if hasVoted
