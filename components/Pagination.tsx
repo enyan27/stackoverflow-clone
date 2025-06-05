@@ -27,7 +27,7 @@ const Pagination = ({ page = 1, isNext, containerClasses }: Props) => {
             value: nextPageNumber.toString(),
         });
 
-        router.push(newUrl);
+        router.push(newUrl, { scroll: false });
     };
 
     return (
