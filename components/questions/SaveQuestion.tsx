@@ -27,8 +27,8 @@ const SaveQuestion = ({
         if (isLoading) return;
         if (!userId)
             return toast({
-                title: "You need to be logged in to save a question",
-                variant: "destructive",
+                title: "Please log in to save",
+                description: "You need to be logged in to save a question",
             });
 
         setIsLoading(true);
