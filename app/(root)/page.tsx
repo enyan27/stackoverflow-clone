@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import QuestionCard from "@/components/cards/QuestionCard";
@@ -12,18 +13,18 @@ import ROUTES from "@/constants/routes";
 import { EMPTY_QUESTION } from "@/constants/states";
 import { getQuestions } from "@/lib/actions/question.action";
 
-interface SearchParams {
-  searchParams: Promise<{ [key: string]: string }>;
-}
+export const metadata: Metadata = {
+  title: "DevFlow | Home",
+};
 
-const Home = async ({ searchParams }: SearchParams) => {
+async function Home({ searchParams }: RouteParams) {
   const { page, pageSize, query, filter } = await searchParams;
 
   const { success, data, error } = await getQuestions({
     page: Number(page) || 1,
     pageSize: Number(pageSize) || 10,
-    query: query || "",
-    filter: filter || "",
+    query,
+    filter,
   });
 
   const { questions, isNext } = data || {};
@@ -32,19 +33,22 @@ const Home = async ({ searchParams }: SearchParams) => {
     <>
       <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
-
         <Button
           className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900"
           asChild
         >
-          <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
+          <Link href={ROUTES.ASK_QUESTION} className="max-sm:w-full">
+            Ask a Question
+          </Link>
         </Button>
       </section>
+
       <section className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
         <LocalSearch
-          route="/"
+          route={ROUTES.HOME}
           imgSrc="/icons/search.svg"
           placeholder="Search questions..."
+          iconPosition="left"
           otherClasses="flex-1"
         />
 
@@ -54,6 +58,7 @@ const Home = async ({ searchParams }: SearchParams) => {
           containerClasses="hidden max-md:flex"
         />
       </section>
+
       <HomeFilter />
 
       <DataRenderer
