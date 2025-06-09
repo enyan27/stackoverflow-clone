@@ -64,7 +64,7 @@ const QuestionDetails = async ({ params, searchParams }: RouteParams) => {
         questionId: id,
         page: Number(page) || 1,
         pageSize: Number(pageSize) || 10,
-        filter: "latest",
+        filter: filter || "newest",
     });
     // Check if hasVoted
     const hasVotedPromise = hasVoted({
