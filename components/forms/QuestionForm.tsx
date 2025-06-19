@@ -107,7 +107,7 @@ const QuestionForm = ({ question, isEdit = false }: Params) => {
                         description: "Question updated successfully",
                     });
 
-                    if (result.data) router.push(ROUTES.QUESTION(result.data._id));
+                    if (result.data) router.push(ROUTES.QUESTION(result.data._id as string));
                 } else {
                     toast({
                         title: `Error ${result.status}`,
@@ -235,7 +235,7 @@ const QuestionForm = ({ question, isEdit = false }: Params) => {
                     <Button
                         type="submit"
                         disabled={isPending}
-                        className="primary-gradient w-fit !text-light-900"
+                        className="primary-gradient w-fit !text-dark100_light900"
                     >
                         {isPending ? (
                             <>

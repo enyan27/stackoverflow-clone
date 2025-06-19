@@ -166,6 +166,7 @@ export const getTimeStamp = (createdAt: Date): string => {
 
     return `${diffDays} days ago`;
 };
+
 export function assignBadges(params: {
     criteria: {
         type: keyof typeof BADGE_CRITERIA;

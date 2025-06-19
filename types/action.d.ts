@@ -121,3 +121,11 @@ interface RecommendationParams {
     skip: number;
     limit: number;
 }
+
+interface UpdateUserParams {
+    name?: string;
+    username?: string;
+    email?: string;
+    image?: string;
+    password?: string;
+}

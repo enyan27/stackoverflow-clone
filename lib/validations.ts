@@ -58,7 +58,7 @@ export const AskQuestionSchema = z.object({
         .min(5, {
             message: "Title must be at least 5 characters.",
         })
-        .max(130, { message: "Title musn't be longer then 130 characters." }),
+        .max(130, { message: "Title mustn't be longer then 130 characters." }),
     content: z.string().min(100, { message: "Minimum of 100 characters." }),
     tags: z
         .array(
@@ -159,7 +159,7 @@ export const AIAnswerSchema = z.object({
             message: "Question title must be at least 5 characters.",
         })
         .max(130, {
-            message: "Question title musn't be longer then 130 characters.",
+            message: "Question title mustn't be longer then 130 characters.",
         }),
     content: z.string().min(100, {
         message: "Question description must have Minimum of 100 characters.",
@@ -223,4 +223,38 @@ export const CreateInteractionSchema = z.object({
     actionTarget: z.enum(["question", "answer"]),
     actionId: z.string().min(1),
     authorId: z.string().min(1),
+});
+
+export const ProfileSchema = z.object({
+    name: z
+        .string()
+        .min(3, {
+            message: "Name must be at least 3 characters.",
+        })
+        .max(130, { message: "Name mustn't be longer then 130 characters." }),
+    username: z
+        .string()
+        .min(3, { message: "username mustn't be longer then 100 characters." }),
+    portfolio: z.string().url({ message: "Please provide valid URL" }),
+    location: z.string().min(3, { message: "Please provide proper location" }),
+    bio: z.string().min(3, {
+        message: "Bio must be at least 3 characters.",
+    }),
+});
+
+export const UpdateUserSchema = z.object({
+    name: z
+        .string()
+        .min(3, {
+            message: "Name must be at least 3 characters.",
+        })
+        .max(130, { message: "Name mustn't be longer then 130 characters." }),
+    username: z
+        .string()
+        .min(3, { message: "username mustn't be longer then 100 characters." }),
+    portfolio: z.string().url({ message: "Please provide valid URL" }),
+    location: z.string().min(3, { message: "Please provide proper location" }),
+    bio: z.string().min(3, {
+        message: "Bio must be at least 3 characters.",
+    }),
 });
