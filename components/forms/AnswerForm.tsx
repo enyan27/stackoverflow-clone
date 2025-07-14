@@ -67,9 +67,8 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
                 }
             } else {
                 toast({
-                    title: "Error",
-                    description: result.error?.message,
-                    variant: "destructive",
+                    title: "Please log in",
+                    description: "You need to be logged in to use this feature",
                 });
             }
         });

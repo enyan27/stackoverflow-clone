@@ -32,7 +32,8 @@ const MobileNavigation = async () => {
             </SheetTrigger>
             <SheetContent
                 side="left"
-                className="background-light900_dark200 border-none"
+                className="bg-light-900 dark:bg-dark-200 border-none"
+            // Bug: "background-light900_dark200"
             >
                 <SheetTitle className="hidden">Navigation</SheetTitle>
                 <Link href="/" className="flex items-center gap-1">
