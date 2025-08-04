@@ -1,0 +1,77 @@
+{
+    "navigation": {
+        "home": "Trang chủ",
+        "questions": "Câu hỏi",
+        "tags": "Thẻ",
+        "users": "Người dùng",
+        "ask": "Đặt câu hỏi",
+        "signIn": "Đăng nhập",
+        "signUp": "Đăng ký",
+        "profile": "Hồ sơ",
+        "signOut": "Đăng xuất"
+    },
+    "common": {
+        "search": "Tìm kiếm",
+        "filter": "Lọc",
+        "sort": "Sắp xếp",
+        "loading": "Đang tải...",
+        "error": "Lỗi",
+        "success": "Thành công",
+        "cancel": "Hủy",
+        "save": "Lưu",
+        "edit": "Chỉnh sửa",
+        "delete": "Xóa",
+        "submit": "Gửi",
+        "back": "Quay lại",
+        "next": "Tiếp theo",
+        "previous": "Trước"
+    },
+    "home": {
+        "title": "Chào mừng đến với DevFlow",
+        "subtitle": "Đặt câu hỏi, nhận câu trả lời, chia sẻ kiến thức",
+        "featuredQuestions": "Câu hỏi nổi bật",
+        "recentQuestions": "Câu hỏi gần đây",
+        "popularTags": "Thẻ phổ biến"
+    },
+    "questions": {
+        "title": "Câu hỏi",
+        "askQuestion": "Đặt câu hỏi",
+        "noQuestions": "Không tìm thấy câu hỏi",
+        "views": "lượt xem",
+        "answers": "câu trả lời",
+        "votes": "bình chọn"
+    },
+    "auth": {
+        "signInTitle": "Đăng nhập",
+        "signUpTitle": "Đăng ký",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu",
+        "forgotPassword": "Quên mật khẩu?",
+        "dontHaveAccount": "Chưa có tài khoản?",
+        "alreadyHaveAccount": "Đã có tài khoản?",
+        "signInWith": "Đăng nhập bằng",
+        "signUpWith": "Đăng ký bằng"
+    },
+    "profile": {
+        "editProfile": "Chỉnh sửa hồ sơ",
+        "name": "Tên",
+        "username": "Tên người dùng",
+        "bio": "Tiểu sử",
+        "location": "Vị trí",
+        "website": "Trang web",
+        "joined": "Tham gia",
+        "reputation": "Danh tiếng",
+        "questions": "Câu hỏi",
+        "answers": "Câu trả lời"
+    },
+    "theme": {
+        "light": "Sáng",
+        "dark": "Tối",
+        "system": "Hệ thống"
+    },
+    "language": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+    }
+}

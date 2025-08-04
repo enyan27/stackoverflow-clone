@@ -7,6 +7,7 @@ import "./globals.css";
 import { auth } from "@/auth";
 import { Toaster } from "@/components/ui/toaster";
 import ThemeProvider from "@/context/Theme";
+import { LanguageProvider } from "@/context/Language";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -38,19 +39,21 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         />
       </head>
       <SessionProvider session={session}>
-        <body
-          className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+        <LanguageProvider>
+          <body
+            className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
           >
-            {children}
-          </ThemeProvider>
-          <Toaster />
-        </body>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+            <Toaster />
+          </body>
+        </LanguageProvider>
       </SessionProvider>
     </html>
   );

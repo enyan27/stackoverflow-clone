@@ -217,6 +217,8 @@ body {
 
   .primary-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+
+    /* background: linear-gradient(129deg, #7367F0 0%, #CE9FFC 100%); */
   }
 
   .dark-gradient {

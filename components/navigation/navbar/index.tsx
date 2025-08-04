@@ -8,6 +8,7 @@ import ROUTES from "@/constants/routes";
 
 import MobileNavigation from "./MobileNavigation";
 import Theme from "./Theme";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = async () => {
     const session = await auth();
@@ -29,7 +30,8 @@ const Navbar = async () => {
 
             <GlobalSearch />
 
-            <div className="flex-between gap-5">
+            <div className="flex-between gap-4">
+                <LanguageSwitcher />
                 <Theme />
 
                 {session?.user?.id && (

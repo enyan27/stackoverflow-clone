@@ -1,0 +1,77 @@
+{
+    "navigation": {
+        "home": "Home",
+        "questions": "Questions",
+        "tags": "Tags",
+        "users": "Users",
+        "ask": "Ask Question",
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
+        "profile": "Profile",
+        "signOut": "Sign Out"
+    },
+    "common": {
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "edit": "Edit",
+        "delete": "Delete",
+        "submit": "Submit",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous"
+    },
+    "home": {
+        "title": "Welcome to DevFlow",
+        "subtitle": "Ask questions, get answers, share knowledge",
+        "featuredQuestions": "Featured Questions",
+        "recentQuestions": "Recent Questions",
+        "popularTags": "Popular Tags"
+    },
+    "questions": {
+        "title": "Questions",
+        "askQuestion": "Ask Question",
+        "noQuestions": "No questions found",
+        "views": "views",
+        "answers": "answers",
+        "votes": "votes"
+    },
+    "auth": {
+        "signInTitle": "Sign In",
+        "signUpTitle": "Sign Up",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot Password?",
+        "dontHaveAccount": "Don't have an account?",
+        "alreadyHaveAccount": "Already have an account?",
+        "signInWith": "Sign in with",
+        "signUpWith": "Sign up with"
+    },
+    "profile": {
+        "editProfile": "Edit Profile",
+        "name": "Name",
+        "username": "Username",
+        "bio": "Bio",
+        "location": "Location",
+        "website": "Website",
+        "joined": "Joined",
+        "reputation": "Reputation",
+        "questions": "Questions",
+        "answers": "Answers"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "language": {
+        "en": "English",
+        "vi": "Tiếng Việt"
+    }
+}

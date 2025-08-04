@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 import { Input } from "@/components/ui/input";
+import { useTranslation } from "@/hooks/useTranslation";
 import { formUrlQuery, removeKeysFromUrlQuery } from "@/lib/url";
 
 import GlobalResult from "../GlobalResult";
@@ -13,6 +14,7 @@ const GlobalSearch = () => {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const { t } = useTranslation();
 
     const query = searchParams.get("global");
 
@@ -80,7 +82,7 @@ const GlobalSearch = () => {
 
                 <Input
                     type="text"
-                    placeholder="Search anything globally..."
+                    placeholder={t('common.searchGlobal')}
                     value={search}
                     onChange={(e) => {
                         setSearch(e.target.value);

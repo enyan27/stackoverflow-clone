@@ -7,6 +7,7 @@ import React from "react";
 
 import { SheetClose } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants";
+import { useTranslation } from "@/hooks/useTranslation";
 import { cn } from "@/lib/utils";
 
 const NavLinks = ({
@@ -17,6 +18,7 @@ const NavLinks = ({
     userId?: string;
 }) => {
     const pathname = usePathname();
+    const { t } = useTranslation();
 
     return (
         <>
@@ -54,7 +56,7 @@ const NavLinks = ({
                                 !isMobileNav && "max-lg:hidden"
                             )}
                         >
-                            {item.label}
+                            {t(`navigation.${item.label.toLowerCase().replaceAll(' ', '')}`)}
                         </p>
                     </Link>
                 );
