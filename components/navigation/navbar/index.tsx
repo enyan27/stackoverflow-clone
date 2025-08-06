@@ -12,6 +12,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = async () => {
     const session = await auth();
+    const userId = session?.user?.id;
 
     return (
         <nav className="flex-between background-light900_dark200 fixed z-50 w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
@@ -34,15 +35,15 @@ const Navbar = async () => {
                 <LanguageSwitcher />
                 <Theme />
 
-                {session?.user?.id && (
+                {userId && (
                     <UserAvatar
-                        id={session.user.id}
-                        name={session.user.name!}
+                        id={userId}
+                        name={session.user?.name!}
                         imageUrl={session.user?.image}
                     />
                 )}
 
-                <MobileNavigation />
+                <MobileNavigation userId={userId} />
             </div>
         </nav>
     );

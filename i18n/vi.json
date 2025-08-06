@@ -2,7 +2,10 @@
     "navigation": {
         "home": "Trang chủ",
         "questions": "Câu hỏi",
+        "community": "Cộng đồng",
+        "collections": "Đã lưu",
         "tags": "Thẻ",
+        "askaquestion": "Đặt câu hỏi",
         "users": "Người dùng",
         "ask": "Đặt câu hỏi",
         "signIn": "Đăng nhập",
@@ -11,6 +14,7 @@
         "signOut": "Đăng xuất"
     },
     "common": {
+        "searchGlobal": "Tìm kiếm trên toàn bộ trang",
         "search": "Tìm kiếm",
         "filter": "Lọc",
         "sort": "Sắp xếp",
@@ -25,6 +29,17 @@
         "back": "Quay lại",
         "next": "Tiếp theo",
         "previous": "Trước"
+    },
+    "filters": {
+        "newest": "Mới nhất",
+        "oldest": "Cũ nhất",
+        "popular": "Phổ biến",
+        "unanswered": "Chưa được trả lời",
+        "recommended": "Đề xuất",
+        "mostVoted": "Lượt vote cao nhất",
+        "mostViewed": "Lượt view cao nhất",
+        "mostRecent": "Gần đây",
+        "mostAnswered": "Lượt phản hồi cao nhất"
     },
     "home": {
         "title": "Chào mừng đến với DevFlow",
@@ -42,16 +57,16 @@
         "votes": "bình chọn"
     },
     "auth": {
-        "signInTitle": "Đăng nhập",
-        "signUpTitle": "Đăng ký",
+        "signIn": "Đăng nhập",
+        "signUp": "Đăng ký",
         "email": "Email",
         "password": "Mật khẩu",
         "confirmPassword": "Xác nhận mật khẩu",
         "forgotPassword": "Quên mật khẩu?",
-        "dontHaveAccount": "Chưa có tài khoản?",
-        "alreadyHaveAccount": "Đã có tài khoản?",
-        "signInWith": "Đăng nhập bằng",
-        "signUpWith": "Đăng ký bằng"
+        "dontHaveAnAccount": "Bạn chưa có tài khoản?",
+        "alreadyHaveAnAccount": "Đã có tài khoản?",
+        "continueWithGitHub": "Tiếp tục với GitHub",
+        "continueWithGoogle": "Tiếp tục với Google"
     },
     "profile": {
         "editProfile": "Chỉnh sửa hồ sơ",

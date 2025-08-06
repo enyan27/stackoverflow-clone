@@ -5,7 +5,8 @@ import { signIn } from "next-auth/react";
 import React from "react";
 
 import ROUTES from "@/constants/routes";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/useToast";
+import { useTranslation } from "@/hooks/useTranslation";
 
 import { Button } from "../ui/button";
 
@@ -33,6 +34,8 @@ const SocialAuthForm = () => {
         }
     };
 
+    const { t } = useTranslation();
+
     return (
         <div className="mt-10 flex flex-wrap gap-2.5">
             <Button className={buttonClass} onClick={() => handleSignIn("github")}>
@@ -43,7 +46,7 @@ const SocialAuthForm = () => {
                     height={20}
                     className="invert-colors mr-2.5 object-contain"
                 />
-                <span>Log in with GitHub</span>
+                <span>{t('auth.continueWithGitHub')}</span>
             </Button>
 
             <Button className={buttonClass} onClick={() => handleSignIn("google")}>
@@ -54,7 +57,7 @@ const SocialAuthForm = () => {
                     height={20}
                     className="mr-2.5 object-contain"
                 />
-                <span>Log in with Google</span>
+                <span>{t('auth.continueWithGoogle')}</span>
             </Button>
         </div>
     );

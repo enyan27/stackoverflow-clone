@@ -2,7 +2,10 @@
     "navigation": {
         "home": "Home",
         "questions": "Questions",
+        "community": "Community",
+        "collections": "Collections",
         "tags": "Tags",
+        "askaquestion": "Ask a Question",
         "users": "Users",
         "ask": "Ask Question",
         "signIn": "Sign In",
@@ -11,6 +14,7 @@
         "signOut": "Sign Out"
     },
     "common": {
+        "searchGlobal": "Search on the whole site",
         "search": "Search",
         "filter": "Filter",
         "sort": "Sort",
@@ -25,6 +29,17 @@
         "back": "Back",
         "next": "Next",
         "previous": "Previous"
+    },
+    "filters": {
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "popular": "Popular",
+        "unanswered": "Unanswered",
+        "recommended": "Recommended",
+        "mostVoted": "Most Voted",
+        "mostViewed": "Most Viewed",
+        "mostRecent": "Most Recent",
+        "mostAnswered": "Most Answered"
     },
     "home": {
         "title": "Welcome to DevFlow",
@@ -42,16 +57,16 @@
         "votes": "votes"
     },
     "auth": {
-        "signInTitle": "Sign In",
-        "signUpTitle": "Sign Up",
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Confirm Password",
         "forgotPassword": "Forgot Password?",
-        "dontHaveAccount": "Don't have an account?",
-        "alreadyHaveAccount": "Already have an account?",
-        "signInWith": "Sign in with",
-        "signUpWith": "Sign up with"
+        "dontHaveAnAccount": "Don't have an account?",
+        "alreadyHaveAnAccount": "Already have an account?",
+        "continueWithGitHub": "Continue with GitHub",
+        "continueWithGoogle": "Continue with Google"
     },
     "profile": {
         "editProfile": "Edit Profile",

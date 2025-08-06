@@ -18,7 +18,7 @@ import {
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/useToast";
 import { createAnswer } from "@/lib/actions/answer.action";
 import { api } from "@/lib/api";
 import { AnswerSchema } from "@/lib/validations";
@@ -34,9 +34,9 @@ interface Props {
 }
 
 const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
+    const session = useSession();
     const [isAnswering, startAnsweringTransition] = useTransition();
     const [isAISubmitting, setIsAISubmitting] = useState(false);
-    const session = useSession();
 
     const editorRef = useRef<MDXEditorMethods>(null);
 
@@ -68,7 +68,7 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
             } else {
                 toast({
                     title: "Please log in",
-                    description: "You need to be logged in to use this feature",
+                    description: "You need to be logged in to post an answer",
                 });
             }
         });
@@ -78,7 +78,7 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
         if (session.status !== "authenticated") {
             return toast({
                 title: "Please log in",
-                description: "You need to be logged in to use this feature",
+                description: "You need to be logged in to generate an AI answer",
             });
         }
 

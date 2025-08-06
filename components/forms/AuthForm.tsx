@@ -23,7 +23,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import ROUTES from "@/constants/routes";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/useToast";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface AuthFormProps<T extends FieldValues> {
     schema: ZodType<T>;
@@ -67,7 +68,9 @@ const AuthForm = <T extends FieldValues>({
         }
     };
 
-    const buttonText = formType === "SIGN_IN" ? "Sign In" : "Sign Up";
+    const { t } = useTranslation();
+
+    const buttonText = formType === "SIGN_IN" ? t('auth.signIn') : t('auth.signUp');
 
     return (
         <Form {...form}>
@@ -106,30 +109,30 @@ const AuthForm = <T extends FieldValues>({
                     className="primary-gradient paragraph-medium min-h-12 w-full rounded-2 px-4 py-3 font-inter !text-light-900"
                 >
                     {form.formState.isSubmitting
-                        ? buttonText === "Sign In"
-                            ? "Signin In..."
-                            : "Signing Up..."
+                        ? buttonText === t('auth.signIn')
+                            ? t('auth.signIn') + "..."
+                            : t('auth.signUp') + "..."
                         : buttonText}
                 </Button>
 
                 {formType === "SIGN_IN" ? (
                     <p>
-                        Don&apos;t have an account?{" "}
+                        {t('auth.dontHaveAnAccount') + " "}
                         <Link
                             href={ROUTES.SIGN_UP}
                             className="paragraph-semibold primary-text-gradient"
                         >
-                            Sign up
+                            {t('auth.signUp')}
                         </Link>
                     </p>
                 ) : (
                     <p>
-                        Already have an account?{" "}
+                        {t('auth.alreadyHaveAnAccount') + " "}
                         <Link
                             href={ROUTES.SIGN_IN}
                             className="paragraph-semibold primary-text-gradient"
                         >
-                            Sign in
+                            {t('auth.signIn')}
                         </Link>
                     </p>
                 )}

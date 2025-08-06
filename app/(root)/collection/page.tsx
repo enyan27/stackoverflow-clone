@@ -17,7 +17,7 @@ const Collections = async ({ searchParams }: SearchParams) => {
 
     const { success, data, error } = await getSavedQuestions({
         page: Number(page) || 1,
-        pageSize: Number(pageSize) || 10,
+        pageSize: Number(pageSize) || 5,
         query: query || "",
         filter: filter || "",
     });

@@ -1,8 +1,9 @@
+"use client";
+
 import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
@@ -12,12 +13,17 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import ROUTES from "@/constants/routes";
+import { useTranslation } from "@/hooks/useTranslation";
+import { handleSignOut } from "@/lib/actions/auth.action";
 
 import NavLinks from "./NavLinks";
 
-const MobileNavigation = async () => {
-    const session = await auth();
-    const userId = session?.user?.id;
+interface MobileNavigationProps {
+    userId?: string;
+}
+
+const MobileNavigation = ({ userId }: MobileNavigationProps) => {
+    const { t } = useTranslation();
 
     return (
         <Sheet>
@@ -59,19 +65,13 @@ const MobileNavigation = async () => {
                     <div className="flex flex-col gap-3">
                         {userId ? (
                             <SheetClose asChild>
-                                <form
-                                    action={async () => {
-                                        "use server";
-
-                                        await signOut();
-                                    }}
-                                >
+                                <form action={handleSignOut}>
                                     <Button
                                         type="submit"
                                         className="base-medium w-fit !bg-transparent px-4 py-3"
                                     >
                                         <LogOut className="size-5 text-black dark:text-white" />
-                                        <span className="text-dark300_light900">Logout</span>
+                                        <span className="text-dark300_light900">{t('navigation.signOut')}</span>
                                     </Button>
                                 </form>
                             </SheetClose>
@@ -80,7 +80,7 @@ const MobileNavigation = async () => {
                                 <SheetClose asChild>
                                     <Link href={ROUTES.SIGN_IN}>
                                         <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-                                            <span className="primary-text-gradient">Log In</span>
+                                            <span className="primary-text-gradient">{t('navigation.signIn')}</span>
                                         </Button>
                                     </Link>
                                 </SheetClose>
@@ -88,7 +88,7 @@ const MobileNavigation = async () => {
                                 <SheetClose asChild>
                                     <Link href={ROUTES.SIGN_UP}>
                                         <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg border px-4 py-3 shadow-none">
-                                            Sign Up
+                                            {t('navigation.signUp')}
                                         </Button>
                                     </Link>
                                 </SheetClose>
